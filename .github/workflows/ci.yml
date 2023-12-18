@@ -1,0 +1,19 @@
+name: Test Task
+on: push
+jobs:
+    chrome:
+        runs-on: ubuntu-22-04
+        name: E2E on Chrome
+        steps:
+            - uses: actions/checkout@v3
+            - uses: cypress-io/github-actions@v5
+              with:
+                browser: chrome
+    firefox:
+        runs-on: ubuntu-22-04
+        name: E2E on Firefox
+        steps:
+            - uses: actions/checkout@v3
+            - uses: cypress-io/github-actions@v5
+              with:
+                browser: firefox
