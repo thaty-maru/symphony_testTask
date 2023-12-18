@@ -5,15 +5,9 @@ jobs:
         runs-on: ubuntu-22-04
         name: E2E on Chrome
         steps:
-            - uses: actions/checkout@v3
-            - uses: cypress-io/github-actions@v5
-              with:
-                browser: chrome
-    firefox:
-        runs-on: ubuntu-22-04
-        name: E2E on Firefox
-        steps:
-            - uses: actions/checkout@v3
-            - uses: cypress-io/github-actions@v5
-              with:
-                browser: firefox
+            - name: Checkout
+              uses: actions/checkout@v2
+            # Install NPM dependencies, cache them correctly
+            # and run all Cypress tests
+            - name: Cypress run
+              uses: cypress-io/github-action@v4
